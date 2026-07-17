@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 Dias Sem Tela — Castello Infância</title>
+<meta name="description" content="Um método simples para transformar o tempo livre em memórias de infância, mesmo com a rotina corrida de quem trabalha fora. Kit com 10 jogos de alfabetização + 3 bônus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Kalam:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root {
+  --color-bg-base: #FFFBF5;
+  --color-bg-alt: #FFFFFF;
+  --color-text-primary: #3A2E2A;
+  --color-text-secondary: #7A6A63;
+
+  --color-pink-soft: #FFE1E9;
+  --color-pink-accent: #FF7FA3;
+  --color-pink-accent-dark: #E85E88;
+  --color-pink-quote-text: #BA4B6D; /* variação escurecida (~20%) só p/ texto corrido em --font-accent, contraste AA */
+
+  --color-lilac-soft: #EDE4FF;
+  --color-lilac-accent: #9B7FE0;
+  --color-lilac-accent-dark: #7E5FCC;
+
+  --color-yellow-soft: #FFF3D6;
+  --color-yellow-accent: #FFC94A;
+  --color-yellow-accent-dark: #E6A400;
+
+  --color-mint-soft: #DFF6EC;
+  --color-mint-accent: #5BC9A0;
+  --color-mint-accent-dark: #3FA983;
+
+  --color-blue-soft: #E1F0FF;
+  --color-blue-accent: #6FAEE0;
+  --color-blue-accent-dark: #4A8FC7;
+
+  --color-cta-primary: #FF7FA3;
+  --color-cta-text: #FFFFFF;
+  --color-success: #5BC9A0;
+  --color-warning: #FFC94A;
+
+  --shadow-soft: 0 8px 24px rgba(58, 46, 42, 0.08);
+  --shadow-card-hover: 0 14px 32px rgba(58, 46, 42, 0.14);
+
+  /* Blocos de cor sólida — showcase de produto (jogos/bônus), mais saturados que os -accent */
+  --color-solid-pink: #FF6B95;
+  --color-solid-coral: #FF8A5B;
+  --color-solid-purple: #8A5CDB;
+  --color-solid-magenta: #D8579B;
+  --color-solid-teal: #2FA88A;
+  --color-solid-blue: #4A8FD9;
+  --color-solid-indigo: #5B6FD9;
+  --color-solid-gold: #E6A400;
+  --color-solid-green: #4FAE6E;
+  --color-solid-rose: #E0527A;
+
+  --font-display: "Fredoka", sans-serif;
+  --font-accent: "Kalam", cursive;
+  --font-body: "Nunito", sans-serif;
+
+  --fs-hero: clamp(2.2rem, 5vw, 3.5rem);
+  --fs-h2: clamp(1.6rem, 3vw, 2.4rem);
+  --fs-h3: 1.3rem;
+  --fs-body: 1.15rem;
+  --fs-small: 0.9rem;
+
+  --fw-bold: 700;
+  --fw-semibold: 600;
+  --fw-regular: 400;
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  --space-section: clamp(64px, 10vw, 120px);
+  --space-card-gap: 24px;
+  --container-max: 1140px;
+}
+
+/* ============ RESET ============ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-text-primary);
+  background: var(--color-bg-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; line-height: 1.15; font-weight: var(--fw-semibold); }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+
+:focus-visible {
+  outline: 3px solid var(--color-lilac-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  position: relative;
+  padding: var(--space-section) 0;
+  overflow: hidden;
+}
+.section--bg-alt { background: var(--color-bg-alt); }
+.section--pink { background: var(--color-pink-soft); }
+.section--lilac { background: var(--color-lilac-soft); }
+.section--yellow { background: var(--color-yellow-soft); }
+.section--mint { background: var(--color-mint-soft); }
+.section--blue { background: var(--color-blue-soft); }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+}
+.eyebrow--pink { background: var(--color-pink-accent); color: #fff; }
+.eyebrow--lilac { background: var(--color-lilac-accent); color: #fff; }
+.eyebrow--yellow { background: var(--color-yellow-accent-dark); color: #fff; }
+.eyebrow--mint { background: var(--color-mint-accent); color: #fff; }
+
+.accent-word { font-family: var(--font-accent); font-weight: 700; }
+.accent-quote { font-family: var(--font-accent); font-weight: 700; font-size: 1.2em; color: var(--color-pink-quote-text); }
+.hl-pink { color: var(--color-pink-accent-dark); }
+.hl-lilac { color: var(--color-lilac-accent-dark); }
+.hl-mint { color: var(--color-mint-accent-dark); }
+
+.section-title {
+  font-size: var(--fs-h2);
+  max-width: 720px;
+}
+.section-lead {
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin-top: 14px;
+}
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  border-radius: var(--radius-pill);
+  padding: 16px 32px;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: 1.05rem;
+  border: none;
+  min-height: 44px;
+  box-shadow: var(--shadow-soft);
+}
+@media (min-width: 480px) {
+  .btn { width: auto; }
+}
+.btn--primary {
+  background: var(--color-cta-primary);
+  color: var(--color-cta-text);
+}
+.btn--dark {
+  background: var(--color-text-primary);
+  color: #fff;
+}
+.btn svg { flex-shrink: 0; }
+
+.cta-caption {
+  display: block;
+  margin-top: 14px;
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+}
+
+/* ============ DECORATIVE ELEMENTS ============ */
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+.deco-circle--outline { border: 3px solid currentColor; background: none; }
+
+.deco-dot {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  z-index: 0;
+}
+.deco-star {
+  position: absolute;
+  opacity: 0.85;
+  z-index: 0;
+}
+
+/* Photo blob frames — signature element, varied shapes per section */
+.photo-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-alt);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  z-index: 1;
+  padding: 20px;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--fs-small);
+  font-style: italic;
+}
+.photo-frame--blob1 { border-radius: 42% 58% 60% 40% / 45% 40% 60% 55%; }
+.photo-frame--blob2 { border-radius: 58% 42% 40% 60% / 55% 60% 40% 45%; }
+.photo-frame--blob3 { border-radius: 38% 62% 55% 45% / 60% 45% 55% 40%; }
+.photo-frame--pill { border-radius: 46% 54% 68% 32% / 38% 42% 58% 62%; }
+
+/* ============ HEADER ============ */
+.site-header {
+  position: relative;
+  z-index: 10;
+  padding: 20px 0;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 1.2rem;
+  color: var(--color-pink-accent-dark);
+}
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  padding-top: 24px;
+  padding-bottom: 56px;
+  background: var(--color-pink-soft);
+  overflow: hidden;
+}
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+}
+.hero-copy { position: relative; z-index: 1; }
+.hero h1 {
+  font-size: var(--fs-hero);
+  margin-top: 8px;
+}
+.hero-sub {
+  margin-top: 20px;
+  font-size: 1.15rem;
+  color: var(--color-text-secondary);
+  max-width: 520px;
+}
+.hero-cta { margin-top: 32px; }
+
+.hero-visual {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: -56px;
+}
+.hero-visual img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ============ SECTION 2 — IDENTIFICAÇÃO ============ */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.split-copy h2 { font-size: var(--fs-h2); }
+.split-copy .body-lg { font-size: 1.1rem; margin-top: 20px; color: var(--color-text-primary); }
+.split-copy .reinforce {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  border-left: 4px solid var(--color-lilac-accent);
+}
+.identificacao-visual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+.identificacao-visual img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ============ SECTION 3 — VIRADA DE CHAVE ============ */
+.virada {
+  background: var(--color-lilac-soft);
+  text-align: center;
+}
+.virada .container { max-width: 780px; position: relative; z-index: 1; }
+.virada h2 { font-size: var(--fs-h2); }
+.virada p { margin-top: 20px; font-size: 1.1rem; color: var(--color-text-secondary); }
+.authority-badge {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--color-bg-alt);
+  padding: 14px 28px 14px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
+}
+.authority-badge .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-lilac-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+.authority-badge .name { font-weight: var(--fw-bold); font-size: 1.02rem; }
+.authority-badge .role { font-size: 0.88rem; color: var(--color-text-secondary); }
+
+/* ============ SECTION 4 — DESAFIO ============ */
+.desafio { background: var(--color-bg-alt); }
+.desafio .container { text-align: center; }
+.desafio .section-title, .desafio .section-lead { margin-left: auto; margin-right: auto; text-align: center; }
+.checklist {
+  margin: 40px auto 0;
+  max-width: 560px;
+  text-align: left;
+  display: grid;
+  gap: 16px;
+}
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-weight: var(--fw-semibold);
+  font-size: 1.02rem;
+}
+.checklist .check-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-mint-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.desafio-cta { margin-top: 40px; }
+
+/* ============ SECTION 5 — OS 10 JOGOS (bento grid, blocos de cor sólida) ============ */
+.jogos { background: var(--color-mint-soft); }
+.jogos-header { text-align: center; }
+.jogos-header .section-title, .jogos-header .section-lead { margin-left: auto; margin-right: auto; text-align: center; }
+.jogos-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-card-gap);
+}
+.jogo-card {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+.jogo-card--dark { color: var(--color-text-primary); }
+
+/* Slot de imagem: quase-quadrado, dita a altura do card — texto se ajusta ao redor */
+.jogo-card-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 220px;
+}
+.jogo-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: rotate(-3deg);
+}
+.jogo-card--rot-alt .jogo-card-photo { transform: rotate(3deg); }
+/* Placeholder (fallback enquanto asset real não entra) na proporção final */
+.jogo-card-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 1.5px dashed rgba(255,255,255,0.55);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.72rem;
+  font-style: italic;
+  line-height: 1.35;
+  padding: 12px;
+  transform: rotate(-3deg);
+}
+.jogo-card--dark .jogo-card-placeholder { background: rgba(58,46,42,0.08); border-color: rgba(58,46,42,0.35); }
+
+.jogo-card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.jogo-card-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+.jogo-card h3 { font-size: 1.15rem; }
+.jogo-card .objetivo { font-size: 0.92rem; opacity: 0.92; }
+.jogo-card .selo {
+  margin-top: 10px;
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.18);
+  font-family: var(--font-accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.jogo-card--dark .selo { background: rgba(58,46,42,0.1); }
+
+.jogo-card--1 { background: var(--color-solid-pink); }
+.jogo-card--2 { background: var(--color-solid-purple); }
+.jogo-card--3 { background: var(--color-solid-gold); }
+.jogo-card--4 { background: var(--color-solid-teal); }
+.jogo-card--5 { background: var(--color-solid-blue); }
+.jogo-card--6 { background: var(--color-solid-coral); }
+.jogo-card--7 { background: var(--color-solid-indigo); }
+.jogo-card--8 { background: var(--color-solid-rose); }
+.jogo-card--9 { background: var(--color-solid-green); }
+.jogo-card--10 { background: var(--color-solid-magenta); }
+
+/* Cards com fundo claro precisam de texto escuro para manter contraste AA */
+.jogo-card--3 { color: var(--color-text-primary); }
+.jogo-card--3 .jogo-card-placeholder { background: rgba(58,46,42,0.08); border-color: rgba(58,46,42,0.35); }
+.jogo-card--3 .selo { background: rgba(58,46,42,0.1); }
+
+/* Cards estreitos (1 coluna do bento): imagem em cima, texto abaixo — já é o padrão mobile-first acima */
+
+@media (min-width: 900px) {
+  .jogos-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+  }
+  /* Distribuição bento assimétrica — sem repetição de padrão a cada N cards */
+  .jogo-card--1 { grid-column: span 2; grid-row: span 2; }
+  .jogo-card--4 { grid-column: span 2; }
+  .jogo-card--9 { grid-column: span 2; }
+  .jogo-card--10 { grid-column: span 2; }
+
+  /* Cards largos e estreitos (span 2, exceto o hero): imagem ao lado, texto ao lado dela */
+  .jogo-card--4, .jogo-card--9, .jogo-card--10 {
+    flex-direction: row;
+    align-items: center;
+  }
+  .jogo-card--4 .jogo-card-visual,
+  .jogo-card--9 .jogo-card-visual,
+  .jogo-card--10 .jogo-card-visual {
+    flex: 0 0 42%;
+    max-width: 220px;
+  }
+
+  /* Card hero (Jogo 01): mesma lógica dos cards estreitos — imagem em cima, texto embaixo, só que maior */
+  .jogo-card--1 {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+  }
+  .jogo-card--1 .jogo-card-visual { max-width: 340px; margin: 0 auto; }
+  .jogo-card--1 .jogo-card-body { flex: none; align-items: center; text-align: center; }
+  .jogo-card--1 .jogo-card-body .selo { align-self: center; }
+  .jogo-card--1 .jogo-card-body h3 { font-size: 1.4rem; }
+}
+
+/* ============ SECTION 6 — POR QUE FUNCIONA ============ */
+.funciona { background: var(--color-yellow-soft); }
+.funciona-header { text-align: center; }
+.funciona-header .section-title { margin: 0 auto; text-align: center; }
+.funciona-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-card-gap);
+}
+.funciona-card {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+}
+.funciona-card .icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  background: var(--color-yellow-accent);
+  color: #fff;
+}
+.funciona-card h3 { font-size: 1.1rem; }
+.funciona-card p { margin-top: 10px; color: var(--color-text-secondary); font-size: 0.98rem; }
+
+/* ============ SECTION 7 — BÔNUS (bento grid, blocos de cor sólida) ============ */
+.bonus { background: var(--color-blue-soft); }
+.bonus-header { text-align: center; }
+.bonus-header .section-title { margin: 0 auto; text-align: center; }
+.bonus-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-card-gap);
+}
+.bonus-card {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 26px;
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+  border: 2px dashed rgba(255,255,255,0.4);
+}
+
+/* Slot de imagem: quase-quadrado (foto real vem 1:1–4:3), dita altura do bloco */
+.bonus-card-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 220px;
+  margin: 0 auto;
+}
+.bonus-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: rotate(-3deg);
+}
+.bonus-card-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 1.5px dashed rgba(255,255,255,0.55);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.72rem;
+  font-style: italic;
+  line-height: 1.35;
+  padding: 12px;
+  transform: rotate(-3deg);
+}
+
+.bonus-card-body h3 { font-size: 1.2rem; }
+.bonus-card-body p { margin-top: 8px; opacity: 0.92; font-size: 0.95rem; }
+.bonus-price {
+  margin-top: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-display);
+}
+.bonus-price .old { text-decoration: line-through; opacity: 0.7; font-size: 0.95rem; }
+.bonus-price .new { font-weight: 700; }
+.bonus-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  z-index: 2;
+}
+
+.bonus-card--1 { background: var(--color-solid-indigo); }
+.bonus-card--2 { background: var(--color-solid-rose); }
+.bonus-card--3 { background: var(--color-solid-teal); }
+
+@media (min-width: 640px) {
+  .bonus-grid { grid-template-columns: repeat(2, 1fr); }
+  .bonus-card--1 { grid-column: span 2; }
+  /* Card hero: mesma lógica dos cards estreitos — imagem em cima, texto embaixo, só que maior */
+  .bonus-card--1 .bonus-card-visual { max-width: 320px; margin: 0 auto; }
+  .bonus-card--1 .bonus-card-body { flex: none; text-align: center; }
+  .bonus-card--1 { justify-content: center; }
+}
+@media (min-width: 900px) {
+  .bonus-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+  }
+  .bonus-card--1 { grid-column: span 2; grid-row: span 2; justify-content: center; }
+  .bonus-card--1 .bonus-card-visual { max-width: 460px; }
+  .bonus-card--1 .bonus-card-body { flex: none; }
+  .bonus-card--1 .bonus-card-body h3 { font-size: 1.6rem; }
+  .bonus-card--1 .bonus-card-body p { font-size: 1.05rem; margin-top: 12px; }
+  .bonus-card--1 .bonus-price { margin-top: 20px; font-size: 1.1rem; justify-content: center; }
+  .bonus-card--2 { grid-column: span 1; }
+  .bonus-card--3 { grid-column: span 1; }
+}
+
+/* ============ SECTION 8 — OFERTA ============ */
+.oferta { background: var(--color-text-primary); color: #FFFBF5; text-align: center; }
+.oferta .container { max-width: 640px; position: relative; z-index: 1; }
+.oferta h2 { font-size: var(--fs-h2); color: #fff; }
+.oferta-list {
+  margin-top: 36px;
+  display: grid;
+  gap: 14px;
+  text-align: left;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-md);
+  padding: 28px;
+}
+.oferta-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  font-size: 1rem;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.oferta-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.oferta-list .val { color: rgba(255,251,245,0.68); text-decoration: line-through; white-space: nowrap; }
+.oferta-total {
+  margin-top: 28px;
+  font-size: 1rem;
+  color: rgba(255,251,245,0.7);
+}
+.oferta-total .total-val { text-decoration: line-through; }
+.oferta-price {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 3.2rem);
+  font-weight: 700;
+  color: var(--color-yellow-accent);
+}
+.oferta-price span { font-size: 1rem; display: block; font-family: var(--font-body); font-weight: 400; color: rgba(255,251,245,0.7); margin-top: 6px; }
+.oferta-cta { margin-top: 32px; }
+.oferta .cta-caption { color: rgba(255,251,245,0.6); }
+
+/* ============ SECTION 9 — GARANTIA ============ */
+.garantia { background: var(--color-mint-soft); }
+.garantia .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
+}
+.garantia-seal {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--color-mint-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  flex-shrink: 0;
+}
+.garantia h2 { font-size: var(--fs-h2); }
+.garantia p { margin-top: 16px; color: var(--color-text-secondary); font-size: 1.05rem; }
+
+/* ============ SECTION 10 — PARA QUEM É ============ */
+.paraquem { background: var(--color-bg-alt); }
+.paraquem-header { text-align: center; }
+.paraquem-header .section-title { margin: 0 auto; text-align: center; }
+.paraquem-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.paraquem-col {
+  border-radius: var(--radius-md);
+  padding: 32px;
+}
+.paraquem-col--yes { background: var(--color-mint-soft); }
+.paraquem-col--no { background: var(--color-pink-soft); }
+.paraquem-col h3 { font-size: 1.15rem; margin-bottom: 20px; }
+.paraquem-col ul { display: grid; gap: 14px; }
+.paraquem-col li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.98rem; }
+.paraquem-col .mark { flex-shrink: 0; font-weight: 700; }
+.paraquem-col--yes .mark { color: var(--color-mint-accent-dark); }
+.paraquem-col--no .mark { color: var(--color-pink-accent-dark); }
+
+/* ============ SECTION 11 — FAQ ============ */
+.faq { background: var(--color-lilac-soft); }
+.faq .container { max-width: 760px; }
+.faq-header { text-align: center; }
+.faq-header .section-title { margin: 0 auto; text-align: center; }
+.faq-list { margin-top: 40px; display: grid; gap: 16px; }
+.faq-item {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  text-align: left;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: 1.02rem;
+  color: var(--color-text-primary);
+}
+.faq-question .plus { flex-shrink: 0; font-size: 1.4rem; color: var(--color-lilac-accent-dark); line-height: 1; }
+.faq-answer {
+  padding: 0 24px;
+  color: var(--color-text-secondary);
+  font-size: 0.98rem;
+}
+.faq-item.is-open .faq-answer { padding-bottom: 20px; }
+.faq-item summary { list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item.is-open .plus { transform: rotate(45deg); }
+
+/* ============ SECTION 12 — CTA FINAL ============ */
+.cta-final { background: var(--color-pink-soft); text-align: center; }
+.cta-final .container { max-width: 640px; position: relative; z-index: 1; }
+.cta-final h2 { font-size: var(--fs-h2); }
+.cta-final .intro { margin-top: 16px; font-size: 1.05rem; color: var(--color-text-secondary); }
+.choices {
+  margin-top: 32px;
+  display: grid;
+  gap: 16px;
+  text-align: left;
+}
+.choice {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+}
+.choice .mark { font-weight: 700; flex-shrink: 0; font-size: 1.1rem; }
+.choice--no .mark { color: var(--color-pink-accent-dark); }
+.choice--yes .mark { color: var(--color-mint-accent-dark); }
+.cta-final-btn { margin-top: 36px; }
+
+/* ============ FOOTER ============ */
+.site-footer {
+  background: var(--color-text-primary);
+  color: rgba(255,251,245,0.6);
+  text-align: center;
+  padding: 32px 0;
+  font-size: 0.85rem;
+}
+
+/* ============ WAVE DIVIDERS ============ */
+.wave-divider {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 0;
+  z-index: 1;
+  overflow: hidden; /* esconde o trecho do SVG duplicado que passa dos limites da faixa */
+}
+.wave-divider--top { top: -1px; }
+.wave-divider--bottom { bottom: -1px; transform: scaleY(-1); }
+.wave-divider svg {
+  width: 200%; /* contém o padrão da onda repetido 2x lado a lado */
+  height: 100%;
+  display: block;
+  animation: wave-scroll 12s linear infinite;
+}
+@keyframes wave-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* metade exata da largura duplicada — loop fecha sem salto nem gap */
+}
+
+/* ============ RESPONSIVE ============ */
+/* Nota: .jogos-grid e .bonus-grid têm seus breakpoints definidos junto aos
+   componentes (seções 5 e 7) por serem bento grids assimétricos — não uniformes. */
+@media (min-width: 640px) {
+  .funciona-grid { grid-template-columns: repeat(2, 1fr); }
+  .paraquem-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 860px) {
+  .hero .container { grid-template-columns: 0.9fr 1.1fr; align-items: end; column-gap: 24px; }
+  .hero-visual { z-index: 2; }
+  .hero-visual img { max-width: 880px; }
+  .split .container, .split { grid-template-columns: 1fr 1fr; }
+  .split-copy { order: 1; }
+  .split-visual { order: 2; }
+  .split--reverse .split-copy { order: 2; }
+  .split--reverse .split-visual { order: 1; }
+  .identificacao-visual img { max-width: 420px; }
+  .authority-badge { margin-top: 32px; }
+}
+
+@media (min-width: 900px) {
+  .funciona-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============ SCROLL REVEAL ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============ CARD HOVER ============ */
+.card-hover {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ============ CTA HOVER + SHINE ============ */
+.btn {
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+.btn:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-card-hover);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn--shine {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+.btn--shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform: skewX(-20deg);
+  animation: shine-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes shine-sweep {
+  0%   { left: -75%; }
+  20%  { left: 125%; }
+  100% { left: 125%; }
+}
+
+/* ============ DECORATIVE FLOAT ============ */
+.deco-float {
+  animation: deco-float 5s ease-in-out infinite;
+  will-change: transform;
+}
+.deco-float--slow {
+  animation-duration: 7s;
+  animation-delay: -2s;
+}
+@keyframes deco-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* ============ FAQ SMOOTH ACCORDION ============ */
+.faq-item {
+  transition: box-shadow 0.2s ease-out;
+}
+.faq-item .faq-answer-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.3s ease-out;
+}
+.faq-item.is-open .faq-answer-wrap {
+  grid-template-rows: 1fr;
+}
+.faq-answer {
+  overflow: hidden;
+  min-height: 0;
+}
+.faq-question .plus {
+  transition: transform 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <span class="logo">Castello Infância</span>
+  </div>
+</header>
+
+<!-- [1] HERO -->
+<section class="hero">
+  <div class="deco-circle deco-circle--outline deco-float" style="width:60px;height:60px;color:var(--color-lilac-accent);top:8%;right:8%;" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-copy">
+      <span class="eyebrow eyebrow--pink reveal">Desafio para famílias reais</span>
+      <h1 class="reveal" data-delay="80">Ajude seu filho a largar a <span class="accent-word hl-pink">tela</span> — sem culpa, sem brigas.</h1>
+      <p class="hero-sub reveal" data-delay="160">Um método simples para transformar o tempo livre em memórias de infância, mesmo com a rotina corrida de quem trabalha fora.</p>
+      <div class="hero-cta reveal" data-delay="240">
+        <a href="https://pay.kiwify.com.br/LehCx8k" class="btn btn--primary btn--shine">
+          Quero uma infância mais saudável
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <span class="cta-caption">Acesso imediato · Pagamento único · R$29,90</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal" data-delay="120">
+      <img src="assets/hero/mockup-inicial.webp" alt="Menina sorrindo segurando as cartas do jogo Baralho das Sílabas" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- [2] IDENTIFICAÇÃO -->
+<section class="section section--bg-alt">
+  <div class="container split">
+    <div class="split-copy">
+      <h2 class="reveal">Você chega em casa, e a cena se repete.</h2>
+      <p class="body-lg reveal" data-delay="80">Você acorda cedo, trabalha o dia inteiro e faz o melhor que pode pela sua família. Mas quando chega em casa, encontra seu filho na frente de uma tela — de novo. E vem a pergunta que dói: <span class="accent-quote">"será que ele vai lembrar da infância só pelo tablet ligado?"</span></p>
+      <div class="reinforce reveal" data-delay="160">A culpa não aparece porque você ama menos. Aparece porque você quer mais para ele: descoberta, criatividade, momentos que ficam.</div>
+    </div>
+    <div class="split-visual reveal" data-delay="120">
+      <div class="identificacao-visual">
+        <div class="deco-circle deco-float deco-float--slow" style="width:90px;height:90px;background:var(--color-pink-soft);bottom:-20px;left:-20px;" aria-hidden="true"></div>
+        <img src="assets/valor/mae-filho-tela.png" alt="Mãe em pé observando o filho sentado no chão usando fone de ouvido e celular" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [3] VIRADA DE CHAVE -->
+<section class="section virada">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#FFFFFF"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+  <div class="deco-star deco-float" style="top:14%;left:8%;" aria-hidden="true">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--color-lilac-accent)"><path d="M12 0l2.6 8.4L23 11l-8.4 2.6L12 22l-2.6-8.4L1 11l8.4-2.6z"/></svg>
+  </div>
+  <div class="deco-dot" style="width:14px;height:14px;background:var(--color-mint-accent);bottom:16%;right:10%;" aria-hidden="true"></div>
+  <div class="container">
+    <h2 class="reveal">Trabalhar e estar presente <span class="accent-word hl-lilac">não são opostos.</span></h2>
+    <p class="reveal" data-delay="100">Como especialista em desenvolvimento infantil, sei que o aprendizado acontece de forma mais profunda quando a criança participa ativamente da brincadeira. Desafios, movimento, linguagem e criatividade desenvolvem habilidades essenciais — e tornam esse tempo livre prazeroso para todo mundo, inclusive para você.</p>
+    <div class="authority-badge reveal" data-delay="200">
+      <span class="avatar">DC</span>
+      <span>
+        <span class="name" style="display:block;">Daniela Castello Nuovo</span>
+        <span class="role">Especialista em desenvolvimento infantil</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- [4] APRESENTAÇÃO DO DESAFIO -->
+<section class="section desafio">
+  <div class="container">
+    <span class="eyebrow eyebrow--mint reveal">O desafio</span>
+    <h2 class="section-title reveal" data-delay="60">30 dias sem tela</h2>
+    <p class="section-lead reveal" data-delay="120">Uma jornada de aventura e diversão para manter as crianças longe das telas e motivadas todos os dias — com uma surpresa reservada para o último módulo.</p>
+    <ul class="checklist">
+      <li class="reveal" data-delay="0">
+        <span class="check-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        Método testado por mais de 3.000 mães e professoras
+      </li>
+      <li class="reveal" data-delay="80">
+        <span class="check-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        Para crianças de 4 a 10 anos (funciona até com as "difíceis")
+      </li>
+      <li class="reveal" data-delay="160">
+        <span class="check-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        PDF pronto para imprimir e começar hoje
+      </li>
+      <li class="reveal" data-delay="240">
+        <span class="check-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        Passo a passo simples para cada jogo
+      </li>
+      <li class="reveal" data-delay="320">
+        <span class="check-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        Funciona em casa e na escola
+      </li>
+    </ul>
+    <div class="desafio-cta reveal" data-delay="80">
+      <a href="https://pay.kiwify.com.br/LehCx8k" class="btn btn--primary">
+        Começar os 30 dias sem tela
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- [5] OS 10 JOGOS -->
+<section class="section jogos">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#FFFBF5"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="#FFFBF5"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="jogos-header">
+      <span class="eyebrow eyebrow--mint reveal">Kit completo</span>
+      <h2 class="section-title reveal" data-delay="60">10 jogos, cada um trabalhando uma habilidade diferente</h2>
+      <p class="section-lead reveal" data-delay="120">Juntos, formam o material completo para tornar a infância dos pequenos mais leve e saudável.</p>
+    </div>
+    <div class="jogos-grid">
+      <article class="jogo-card jogo-card--1 card-hover reveal" data-delay="0">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/01-JOGO_-Baralho-das-silabas.webp" alt="Cartas do Baralho das Sílabas dispostas em leque" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 01</span>
+          <h3>Baralho das Sílabas</h3>
+          <p class="objetivo">Formar palavras juntando sílabas nas cartas. Desenvolve consciência fonológica brincando.</p>
+          <span class="selo">Ideal para quem está começando a juntar sílabas</span>
+        </div>
+      </article>
+      <article class="jogo-card jogo-card--2 jogo-card--rot-alt card-hover reveal" data-delay="80">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/02-JOGO_-Baralho-do-Alfabeto.webp" alt="Cartas do Baralho do Alfabeto dispostas em leque" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 02</span>
+          <h3>Baralho do Alfabeto</h3>
+          <p class="objetivo">Associar cada letra a uma figura. Fixação do alfabeto de forma natural.</p>
+          <span class="selo">Perfeito para 4–5 anos</span>
+        </div>
+      </article>
+      <article class="jogo-card jogo-card--3 card-hover reveal" data-delay="160">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/03-JOGO_-Baralho-Palavra-Secreta.webp" alt="Cartas do Baralho Palavra Secreta dispostas em leque" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 03</span>
+          <h3>Baralho Palavra Secreta</h3>
+          <p class="objetivo">Desembaralhar letras para descobrir a palavra. Desenvolve raciocínio e ortografia.</p>
+          <span class="selo">Desafia e diverte ao mesmo tempo</span>
+        </div>
+      </article>
+      <article class="jogo-card jogo-card--4 jogo-card--rot-alt card-hover reveal" data-delay="240">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/04-JOGO_-Baralho-Forme-Frases.webp" alt="Cartas do Baralho Forme Frases dispostas em leque" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 04</span>
+          <h3>Baralho Forme Frases</h3>
+          <p class="objetivo">Organizar cartas de palavras em frases com sentido. Primeiros passos da estrutura gramatical.</p>
+          <span class="selo">Prepara para a escrita de textos</span>
+        </div>
+      </article>
+      <article class="jogo-card jogo-card--5 card-hover reveal" data-delay="0">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/05-JOGO_-Baralho-Quem-Sou-Eu.webp" alt="Cartas do Baralho Quem Sou Eu dispostas em leque" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 05</span>
+          <h3>Baralho Quem Sou Eu</h3>
+          <p class="objetivo">Adivinhar a palavra a partir de pistas. Desenvolve interpretação e vocabulário.</p>
+          <span class="selo">Trabalha raciocínio lógico</span>
+        </div>
+      </article>
+      <article class="jogo-card jogo-card--6 jogo-card--rot-alt card-hover reveal" data-delay="80">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/06-JOGO_-Baralho-Forme-Palavras.webp" alt="Cartas do Baralho Forme Palavras dispostas em leque" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 06</span>
+          <h3>Baralho Forme Palavras</h3>
+          <p class="objetivo">Escrever o nome certo a partir de uma figura sorteada. Treino de ortografia disfarçado de jogo.</p>
+          <span class="selo">Escrever brincando</span>
+        </div>
+      </article>
+      <article class="jogo-card jogo-card--7 card-hover reveal" data-delay="160">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/07-JOGO_-Baralho-Descubra-a-Palavra.webp" alt="Cartas do Baralho Descubra a Palavra dispostas em leque" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 07</span>
+          <h3>Baralho Descubra a Palavra</h3>
+          <p class="objetivo">Unir figuras para formar palavras compostas. Expande o vocabulário brincando.</p>
+          <span class="selo">Vocabulário em expansão</span>
+        </div>
+      </article>
+      <article class="jogo-card jogo-card--8 jogo-card--rot-alt card-hover reveal" data-delay="240">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/08-JOGO_-Baralho-Responda-Ai.webp" alt="Cartas do Baralho Responda Aí dispostas em leque" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 08</span>
+          <h3>Baralho Responda Aí</h3>
+          <p class="objetivo">Responder perguntas sobre as cartas. Estimula expressão oral e escrita.</p>
+          <span class="selo">Fala e escrita em ação</span>
+        </div>
+      </article>
+      <article class="jogo-card jogo-card--9 card-hover reveal" data-delay="0">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/09-JOGO_-Baralho-das-Rimas_.webp" alt="Cartas do Baralho das Rimas dispostas em leque" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 09</span>
+          <h3>Baralho das Rimas</h3>
+          <p class="objetivo">Encontrar palavras que rimam. Consciência fonológica avançada, base para a musicalidade da língua.</p>
+          <span class="selo">Ouvido afinado para a língua</span>
+        </div>
+      </article>
+      <article class="jogo-card jogo-card--10 jogo-card--rot-alt card-hover reveal" data-delay="80">
+        <div class="jogo-card-visual">
+          <img class="jogo-card-photo" src="assets/jogos/10-JOGO_-Baralho-Bingo-das-Silabas.webp" alt="Cartela do Bingo das Sílabas" loading="lazy">
+        </div>
+        <div class="jogo-card-body">
+          <span class="jogo-card-num">Jogo 10</span>
+          <h3>Bingo das Sílabas</h3>
+          <p class="objetivo">Marcar as sílabas certas ao ouvir a palavra. Diversão garantida em grupo.</p>
+          <span class="selo">Ótimo para sala de aula ou família toda</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- [6] POR QUE FUNCIONA -->
+<section class="section funciona">
+  <div class="container">
+    <div class="funciona-header">
+      <span class="eyebrow eyebrow--yellow reveal">A ciência por trás do método</span>
+      <h2 class="section-title reveal" data-delay="60">Por que funciona</h2>
+    </div>
+    <div class="funciona-grid">
+      <div class="funciona-card card-hover reveal" data-delay="0">
+        <span class="icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2a4.5 4.5 0 0 0-4.5 4.5v.5a3 3 0 0 0-1 5.83V15a3 3 0 0 0 3 3 3 3 0 0 0 3 3 4.5 4.5 0 0 0 4.5-4.5V6.5A4.5 4.5 0 0 0 9.5 2z"/></svg>
+        </span>
+        <h3>Baseado em neurociência</h3>
+        <p>Crianças aprendem até 300% mais rápido quando estão se divertindo. O cérebro infantil foi feito para aprender brincando.</p>
+      </div>
+      <div class="funciona-card card-hover reveal" data-delay="100">
+        <span class="icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20l9-16H3z"/></svg>
+        </span>
+        <h3>Resolve o problema real</h3>
+        <p>Transforma o "tempo passando" em experiências ricas de aprendizagem, diversão e conexão.</p>
+      </div>
+      <div class="funciona-card card-hover reveal" data-delay="200">
+        <span class="icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </span>
+        <h3>Tranquilidade</h3>
+        <p>Menos culpa, mais presença. Você continua fazendo parte das melhores lembranças da infância do seu filho — mesmo trabalhando.</p>
+      </div>
+      <div class="funciona-card card-hover reveal" data-delay="300">
+        <span class="icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </span>
+        <h3>Economia</h3>
+        <p>Menos de R$3,00 por dia. Material para anos de uso, imprima quantas vezes quiser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [7] BÔNUS -->
+<section class="section bonus">
+  <div class="container">
+    <div class="bonus-header">
+      <span class="eyebrow eyebrow--lilac reveal" style="background:var(--color-blue-accent-dark);">Incluso no seu kit</span>
+      <h2 class="section-title reveal" data-delay="60">Bônus especiais</h2>
+    </div>
+    <div class="bonus-grid">
+      <article class="bonus-card bonus-card--1 card-hover reveal" data-delay="0">
+        <span class="bonus-badge">Grátis</span>
+        <div class="bonus-card-visual">
+          <img class="bonus-card-photo" src="assets/bonus/mockup-1.png" alt="Capa do livro de colorir Teddy Bear Edition" loading="lazy">
+        </div>
+        <div class="bonus-card-body">
+          <h3>Teddy Bear Edition</h3>
+          <p>Momentos de relaxamento criativo que estimulam imaginação, concentração e coordenação motora fina.</p>
+          <div class="bonus-price"><span class="old">De R$107</span><span class="new">Hoje grátis</span></div>
+        </div>
+      </article>
+      <article class="bonus-card bonus-card--2 card-hover reveal" data-delay="100">
+        <span class="bonus-badge">Incluso</span>
+        <div class="bonus-card-visual">
+          <img class="bonus-card-photo" src="assets/bonus/mockup-geral.webp" alt="Guia Lancheira Inteligente em dispositivos e lancheiras montadas" loading="lazy">
+        </div>
+        <div class="bonus-card-body">
+          <h3>Lancheira Inteligente</h3>
+          <p>Guia prático com opções nutritivas e atrativas para facilitar a rotina da família.</p>
+          <div class="bonus-price"><span class="old">De R$37</span><span class="new">Hoje incluso</span></div>
+        </div>
+      </article>
+      <article class="bonus-card bonus-card--3 card-hover reveal" data-delay="200">
+        <span class="bonus-badge">Incluso</span>
+        <div class="bonus-card-visual">
+          <img class="bonus-card-photo" src="assets/bonus/mockup-MESTRE-DAS-FORMAS.png" alt="Capa do guia Mestre das Formas" loading="lazy">
+        </div>
+        <div class="bonus-card-body">
+          <h3>Mestre das Formas</h3>
+          <p>Atividades lúdicas para reconhecimento de formas geométricas, percepção visual e raciocínio lógico.</p>
+          <div class="bonus-price"><span class="old">De R$47</span><span class="new">Hoje incluso</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- [8] OFERTA -->
+<section class="section oferta">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-blue-soft)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-blue-soft)"/>
+    </svg>
+  </div>
+  <div class="container">
+    <span class="eyebrow eyebrow--yellow reveal" style="background:var(--color-yellow-accent);color:var(--color-text-primary);">Oferta completa</span>
+    <h2 class="reveal" data-delay="60">Tudo que você leva hoje</h2>
+    <ul class="oferta-list reveal" data-delay="120">
+      <li><span>10 baralhos completos de alfabetização</span><span class="val">R$197</span></li>
+      <li><span>Lancheira Inteligente</span><span class="val">R$37</span></li>
+      <li><span>Mestre das Formas</span><span class="val">R$47</span></li>
+      <li><span>Teddy Bear Edition</span><span class="val">R$107</span></li>
+    </ul>
+    <p class="oferta-total reveal" data-delay="180">Valor total: <span class="total-val">R$388</span></p>
+    <p class="oferta-price reveal" data-delay="220">R$29,90 <span>Pagamento único · Acesso vitalício · Sem mensalidades</span></p>
+    <div class="oferta-cta reveal" data-delay="300">
+      <a href="https://pay.kiwify.com.br/LehCx8k" class="btn btn--primary btn--shine">
+        Garantir meu kit agora
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <span class="cta-caption">Compra segura · Acesso imediato · Garantia de satisfação</span>
+    </div>
+  </div>
+</section>
+
+<!-- [9] GARANTIA -->
+<section class="section garantia">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#3A2E2A"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="#3A2E2A"/>
+    </svg>
+  </div>
+  <div class="container">
+    <span class="garantia-seal reveal" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    </span>
+    <h2 class="reveal" data-delay="80">Garantia de 7 dias, sem letra miúda</h2>
+    <p class="reveal" data-delay="160">Baixe, imprima, jogue com seu filho. Se em 7 dias você não perceber menos tempo de tela, mais momentos de aprendizado e interação, e evolução visível nas habilidades — devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é nosso; a transformação é sua.</p>
+  </div>
+</section>
+
+<!-- [10] PARA QUEM É -->
+<section class="section paraquem">
+  <div class="container">
+    <div class="paraquem-header">
+      <h2 class="section-title reveal">Para quem é — e para quem não é</h2>
+    </div>
+    <div class="paraquem-grid">
+      <div class="paraquem-col paraquem-col--yes reveal" data-delay="0">
+        <h3>✅ Perfeito para você que:</h3>
+        <ul>
+          <li><span class="mark">✓</span>Trabalha fora e sente que não consegue dar toda a atenção que gostaria</li>
+          <li><span class="mark">✓</span>Se preocupa com o tempo de tela do seu filho e busca alternativas educativas</li>
+          <li><span class="mark">✓</span>Quer uma infância com propósito, onde brincar também é aprender</li>
+          <li><span class="mark">✓</span>Conta com avós, tias ou babás e precisa de atividades fáceis de aplicar</li>
+          <li><span class="mark">✓</span>Valoriza mais brincadeiras e descobertas, e menos tempo ocioso diante das telas</li>
+          <li><span class="mark">✓</span>Quer criar memórias afetivas que seu filho leve para a vida toda</li>
+        </ul>
+      </div>
+      <div class="paraquem-col paraquem-col--no reveal" data-delay="100">
+        <h3>❌ Não é para você que:</h3>
+        <ul>
+          <li><span class="mark">✕</span>Acredita que a criança deve passar o dia todo em frente a telas</li>
+          <li><span class="mark">✕</span>Não valoriza o brincar como parte do desenvolvimento infantil</li>
+          <li><span class="mark">✕</span>Acredita que aprender só acontece dentro da sala de aula</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [11] FAQ -->
+<section class="section faq">
+  <div class="container">
+    <div class="faq-header">
+      <h2 class="section-title reveal">Perguntas frequentes</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal" open data-delay="0">
+        <summary class="faq-question">
+          Funciona para qual idade?
+          <span class="plus" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer-wrap"><div class="faq-answer">De 4 a 10 anos. Os baralhos têm níveis diferentes de dificuldade, da fase pré-silábica até a alfabetização completa.</div></div>
+      </details>
+      <details class="faq-item reveal" open data-delay="80">
+        <summary class="faq-question">
+          Serve para sala de aula?
+          <span class="plus" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer-wrap"><div class="faq-answer">Sim! Professoras podem imprimir para toda a turma — o Bingo das Sílabas, inclusive, é perfeito para grupos.</div></div>
+      </details>
+      <details class="faq-item reveal" open data-delay="160">
+        <summary class="faq-question">
+          Posso imprimir quantas vezes quiser?
+          <span class="plus" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer-wrap"><div class="faq-answer">Sim. Uma vez baixado, é seu para sempre — imprima para todos os filhos, sobrinhos ou alunos.</div></div>
+      </details>
+      <details class="faq-item reveal" open data-delay="240">
+        <summary class="faq-question">
+          E se meu filho não gostar de um jogo?
+          <span class="plus" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer-wrap"><div class="faq-answer">Por isso são 10 baralhos diferentes — cada criança se identifica com alguns mais que outros. E se ainda assim não funcionar, você tem a garantia de 7 dias.</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- [12] CTA FINAL -->
+<section class="section cta-final">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-lilac-soft)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-lilac-soft)"/>
+    </svg>
+  </div>
+  <div class="deco-dot deco-float" style="width:16px;height:16px;background:var(--color-lilac-accent);top:10%;right:10%;" aria-hidden="true"></div>
+  <div class="deco-star deco-float deco-float--slow" style="bottom:12%;left:6%;" aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--color-yellow-accent)"><path d="M12 0l2.6 8.4L23 11l-8.4 2.6L12 22l-2.6-8.4L1 11l8.4-2.6z"/></svg>
+  </div>
+  <div class="container">
+    <h2 class="reveal">A infância passa rápido — e não volta</h2>
+    <p class="intro reveal" data-delay="80">Você tem duas escolhas agora.</p>
+    <div class="choices">
+      <div class="choice choice--no reveal" data-delay="160">
+        <span class="mark">✕</span>
+        <span>Correr o risco de seu filho passar a melhor parte da infância nas telas.</span>
+      </div>
+      <div class="choice choice--yes reveal" data-delay="240">
+        <span class="mark">✓</span>
+        <span>Investir R$29,90 — menos que uma pizza — e começar hoje a transformar essa rotina.</span>
+      </div>
+    </div>
+    <div class="cta-final-btn reveal" data-delay="320">
+      <a href="https://pay.kiwify.com.br/LehCx8k" class="btn btn--primary btn--shine">
+        Garantir o kit agora
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Castello Infância — Daniela Castello Nuovo. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    revealEls.forEach(function (el) {
+      var delay = el.getAttribute('data-delay');
+      if (delay) el.style.setProperty('--reveal-delay', delay + 'ms');
+    });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { observer.observe(el); });
+  }
+
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var summary = item.querySelector('.faq-question');
+    summary.addEventListener('click', function (e) {
+      e.preventDefault();
+      var isOpen = item.classList.contains('is-open');
+      if (isOpen) {
+        item.classList.remove('is-open');
+      } else {
+        document.querySelectorAll('.faq-item.is-open').forEach(function (other) {
+          other.classList.remove('is-open');
+        });
+        item.classList.add('is-open');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
