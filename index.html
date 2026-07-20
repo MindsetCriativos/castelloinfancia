@@ -336,8 +336,8 @@ button { font: inherit; cursor: pointer; }
   box-shadow: var(--shadow-soft);
 }
 .authority-badge .avatar {
-  width: 60px;
-  height: 60px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   background: var(--color-lilac-accent);
   color: #fff;
@@ -348,6 +348,13 @@ button { font: inherit; cursor: pointer; }
   font-weight: 700;
   font-size: 1.15rem;
   flex-shrink: 0;
+  overflow: hidden;
+}
+.authority-badge .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
 }
 .authority-badge .name { font-weight: var(--fw-bold); font-size: 1.02rem; }
 .authority-badge .role { font-size: 0.88rem; color: var(--color-text-secondary); }
@@ -480,6 +487,13 @@ button { font: inherit; cursor: pointer; }
 .jogo-card--3 .selo { background: rgba(58,46,42,0.1); }
 
 /* Cards estreitos (1 coluna do bento): imagem em cima, texto abaixo — já é o padrão mobile-first acima */
+
+@media (max-width: 639px) {
+  .jogo-card { text-align: center; align-items: center; }
+  .jogo-card-visual { margin-left: auto; margin-right: auto; }
+  .jogo-card-body { align-items: center; }
+  .jogo-card .selo { align-self: center; margin-left: auto; margin-right: auto; }
+}
 
 @media (min-width: 900px) {
   .jogos-grid {
@@ -628,6 +642,11 @@ button { font: inherit; cursor: pointer; }
 .bonus-card--1 { background: var(--color-solid-indigo); }
 .bonus-card--2 { background: var(--color-solid-rose); }
 .bonus-card--3 { background: var(--color-solid-teal); }
+
+@media (max-width: 639px) {
+  .bonus-card { text-align: center; align-items: center; }
+  .bonus-price { justify-content: center; }
+}
 
 @media (min-width: 640px) {
   .bonus-grid { grid-template-columns: repeat(2, 1fr); }
@@ -933,6 +952,12 @@ button { font: inherit; cursor: pointer; }
 
 <!-- [2] IDENTIFICAÇÃO -->
 <section class="section section--bg-alt">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-pink-soft)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-pink-soft)"/>
+    </svg>
+  </div>
   <div class="container split">
     <div class="split-copy">
       <h2 class="reveal">Você chega em casa, e a cena se repete.</h2>
@@ -1078,6 +1103,12 @@ button { font: inherit; cursor: pointer; }
 
 <!-- [4] BÔNUS -->
 <section class="section bonus">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-mint-soft)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-mint-soft)"/>
+    </svg>
+  </div>
   <div class="container">
     <div class="bonus-header">
       <span class="eyebrow eyebrow--lilac reveal" style="background:var(--color-blue-accent-dark);">Incluso no seu kit</span>
@@ -1123,6 +1154,12 @@ button { font: inherit; cursor: pointer; }
 
 <!-- [5] APRESENTAÇÃO DO DESAFIO -->
 <section class="section desafio">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-blue-soft)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-blue-soft)"/>
+    </svg>
+  </div>
   <div class="container">
     <span class="eyebrow eyebrow--mint reveal">O desafio</span>
     <h2 class="section-title reveal" data-delay="60">30 dias sem tela</h2>
@@ -1168,8 +1205,35 @@ button { font: inherit; cursor: pointer; }
   </div>
 </section>
 
-<!-- [6] POR QUE FUNCIONA -->
+<!-- [6] VIRADA DE CHAVE -->
+<section class="section virada">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-bg-alt)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-bg-alt)"/>
+    </svg>
+  </div>
+  <div class="container">
+    <h2 class="reveal">Trabalhar e estar presente <span class="accent-word hl-lilac">não são opostos.</span></h2>
+    <p class="reveal" data-delay="100">Como especialista em desenvolvimento infantil, sei que o aprendizado acontece de forma mais profunda quando a criança participa ativamente da brincadeira. Desafios, movimento, linguagem e criatividade desenvolvem habilidades essenciais — e tornam esse tempo livre prazeroso para todo mundo, inclusive para você.</p>
+    <div class="authority-badge reveal" data-delay="200">
+      <span class="avatar"><img src="assets/sobre/daniela.png" alt="Daniela Castello Nuovo" loading="lazy"></span>
+      <span>
+        <span class="name" style="display:block;">Daniela Castello Nuovo</span>
+        <span class="role">Especialista em desenvolvimento infantil</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- [7] POR QUE FUNCIONA -->
 <section class="section funciona">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-lilac-soft)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-lilac-soft)"/>
+    </svg>
+  </div>
   <div class="container">
     <div class="funciona-header">
       <span class="eyebrow eyebrow--yellow reveal">A ciência por trás do método</span>
@@ -1208,33 +1272,12 @@ button { font: inherit; cursor: pointer; }
   </div>
 </section>
 
-<!-- [7] VIRADA DE CHAVE -->
-<section class="section virada">
-  <div class="wave-divider wave-divider--top" aria-hidden="true">
-    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-yellow-soft)"/>
-      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-yellow-soft)"/>
-    </svg>
-  </div>
-  <div class="container">
-    <h2 class="reveal">Trabalhar e estar presente <span class="accent-word hl-lilac">não são opostos.</span></h2>
-    <p class="reveal" data-delay="100">Como especialista em desenvolvimento infantil, sei que o aprendizado acontece de forma mais profunda quando a criança participa ativamente da brincadeira. Desafios, movimento, linguagem e criatividade desenvolvem habilidades essenciais — e tornam esse tempo livre prazeroso para todo mundo, inclusive para você.</p>
-    <div class="authority-badge reveal" data-delay="200">
-      <span class="avatar">DC</span>
-      <span>
-        <span class="name" style="display:block;">Daniela Castello Nuovo</span>
-        <span class="role">Especialista em desenvolvimento infantil</span>
-      </span>
-    </div>
-  </div>
-</section>
-
 <!-- [8] OFERTA -->
 <section class="section oferta">
   <div class="wave-divider wave-divider--top" aria-hidden="true">
     <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-lilac-soft)"/>
-      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-lilac-soft)"/>
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-yellow-soft)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-yellow-soft)"/>
     </svg>
   </div>
   <div class="container">
@@ -1277,6 +1320,12 @@ button { font: inherit; cursor: pointer; }
 
 <!-- [10] FAQ -->
 <section class="section faq">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-mint-soft)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-mint-soft)"/>
+    </svg>
+  </div>
   <div class="container">
     <div class="faq-header">
       <h2 class="section-title reveal">Perguntas frequentes</h2>
