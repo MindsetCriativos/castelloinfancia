@@ -725,15 +725,12 @@ button { font: inherit; cursor: pointer; }
   z-index: 1;
 }
 .garantia-seal {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--color-mint-accent);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 90px;
+  height: 90px;
   flex-shrink: 0;
+}
+@media (min-width: 640px) {
+  .garantia-seal { width: 110px; height: 110px; }
 }
 .garantia h2 { font-size: var(--fs-h2); }
 .garantia p { margin-top: 16px; color: var(--color-text-secondary); font-size: 1.05rem; }
@@ -929,22 +926,23 @@ button { font: inherit; cursor: pointer; }
 
 .testimonials-track {
   display: flex;
-  gap: 20px;
+  gap: 14px;
   overflow-x: auto;
-  padding: 8px 4px 24px;
+  scroll-snap-type: x mandatory;
+  padding: 8px 56px 24px;
   scrollbar-width: none;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
 }
 .testimonials-track::-webkit-scrollbar { display: none; }
 
 .testimonial-card {
   flex: 0 0 auto;
-  width: 82%;
-  max-width: 320px;
+  scroll-snap-align: center;
+  width: calc(100vw - 112px);
   background: var(--color-bg-alt);
   border-radius: var(--radius-md);
-  padding: 28px;
+  padding: 22px;
   box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
@@ -991,16 +989,16 @@ button { font: inherit; cursor: pointer; }
 .testimonial-person .role { font-size: 0.82rem; color: var(--color-text-secondary); }
 
 .testimonials-arrow {
+  display: flex;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: none;
   background: var(--color-bg-alt);
   box-shadow: var(--shadow-soft);
-  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -1008,19 +1006,40 @@ button { font: inherit; cursor: pointer; }
   z-index: 2;
 }
 .testimonials-arrow:hover { background: var(--color-mint-accent); color: #fff; }
-.testimonials-arrow--prev { left: -6px; }
-.testimonials-arrow--next { right: -6px; }
+.testimonials-arrow--prev { left: 4px; }
+.testimonials-arrow--next { right: 4px; }
 
-.testimonials-disclaimer {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 0.78rem;
-  color: var(--color-text-secondary);
-  opacity: 0.7;
+.testimonials-dots {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.testimonials-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  cursor: pointer;
+}
+.testimonials-dots button.is-active {
+  background: var(--color-mint-accent);
+  width: 22px;
+  border-radius: var(--radius-pill);
 }
 
 @media (min-width: 640px) {
-  .testimonial-card { width: 320px; }
+  .testimonials-track {
+    scroll-snap-type: none;
+    padding: 8px 4px 24px;
+    gap: 20px;
+  }
+  .testimonial-card { width: 320px; padding: 28px; scroll-snap-align: none; }
+  .testimonials-dots { display: none; }
+  .testimonials-arrow { width: 44px; height: 44px; }
   .testimonials-arrow--prev { left: -22px; }
   .testimonials-arrow--next { right: -22px; }
 }
@@ -1450,7 +1469,7 @@ button { font: inherit; cursor: pointer; }
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
       </button>
     </div>
-    <p class="testimonials-disclaimer">Depoimentos ilustrativos para demonstração.</p>
+    <div class="testimonials-dots" role="tablist" aria-label="Selecionar depoimento"></div>
   </div>
 </section>
 
@@ -1493,7 +1512,13 @@ button { font: inherit; cursor: pointer; }
   </div>
   <div class="container">
     <span class="garantia-seal reveal" aria-hidden="true">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      <svg width="100%" height="100%" viewBox="0 0 200 200">
+        <path d="M100.0,4.0 Q111.7,10.8 120.7,22.7 Q134.4,16.9 148.0,16.9 Q154.8,28.6 156.6,43.4 Q171.4,45.2 183.1,52.0 Q183.1,65.6 177.3,79.3 Q189.2,88.3 196.0,100.0 Q189.2,111.7 177.3,120.7 Q183.1,134.4 183.1,148.0 Q171.4,154.8 156.6,156.6 Q154.8,171.4 148.0,183.1 Q134.4,183.1 120.7,177.3 Q111.7,189.2 100.0,196.0 Q88.3,189.2 79.3,177.3 Q65.6,183.1 52.0,183.1 Q45.2,171.4 43.4,156.6 Q28.6,154.8 16.9,148.0 Q16.9,134.4 22.7,120.7 Q10.8,111.7 4.0,100.0 Q10.8,88.3 22.7,79.3 Q16.9,65.6 16.9,52.0 Q28.6,45.2 43.4,43.4 Q45.2,28.6 52.0,16.9 Q65.6,16.9 79.3,22.7 Q88.3,10.8 100.0,4.0 Z" fill="var(--color-mint-accent)"/>
+        <circle cx="100" cy="100" r="68" fill="none" stroke="white" stroke-width="2" stroke-dasharray="4 4" opacity="0.8"/>
+        <text x="100" y="90" text-anchor="middle" fill="white" font-family="var(--font-display)" font-weight="700" font-size="36">7</text>
+        <text x="100" y="115" text-anchor="middle" fill="white" font-family="var(--font-body)" font-weight="700" font-size="15" letter-spacing="1">DIAS</text>
+        <text x="100" y="135" text-anchor="middle" fill="white" font-family="var(--font-body)" font-weight="600" font-size="9.5" letter-spacing="1.5">GARANTIDO</text>
+      </svg>
     </span>
     <h2 class="reveal" data-delay="80">Garantia de 7 dias, sem letra miúda</h2>
     <p class="reveal" data-delay="160">Baixe, imprima, jogue com seu filho. Se em 7 dias você não perceber menos tempo de tela, mais momentos de aprendizado e interação, e evolução visível nas habilidades — devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é nosso; a transformação é sua.</p>
@@ -1606,7 +1631,9 @@ button { font: inherit; cursor: pointer; }
     var setWidth = function () { return track.scrollWidth / 2; };
     var cardStep = function () {
       var card = track.querySelector('.testimonial-card');
-      return card ? card.getBoundingClientRect().width + 20 : 320;
+      if (!card) return 320;
+      var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+      return card.getBoundingClientRect().width + gap;
     };
 
     var settling = false;
@@ -1632,6 +1659,41 @@ button { font: inherit; cursor: pointer; }
     var nextBtn = document.querySelector('.testimonials-arrow--next');
     nextBtn.addEventListener('click', function () { advance(1); });
     prevBtn.addEventListener('click', function () { advance(-1); });
+
+    var dotsWrap = document.querySelector('.testimonials-dots');
+    var dots = [];
+    if (dotsWrap) {
+      originalCards.forEach(function (card, i) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Ir para depoimento ' + (i + 1));
+        dot.addEventListener('click', function () {
+          var allCards = track.querySelectorAll('.testimonial-card');
+          var target = allCards[i];
+          var offset = target.offsetLeft - (track.clientWidth - target.clientWidth) / 2;
+          track.scrollTo({ left: offset, behavior: 'smooth' });
+        });
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+      });
+      var updateDots = function () {
+        var allCards = Array.prototype.slice.call(track.querySelectorAll('.testimonial-card'));
+        var center = track.scrollLeft + track.clientWidth / 2;
+        var closest = 0;
+        var closestDist = Infinity;
+        allCards.forEach(function (card, i) {
+          var cardCenter = card.offsetLeft + card.clientWidth / 2;
+          var dist = Math.abs(cardCenter - center);
+          if (dist < closestDist) { closestDist = dist; closest = i; }
+        });
+        var activeIndex = closest % originalCards.length;
+        dots.forEach(function (dot, i) { dot.classList.toggle('is-active', i === activeIndex); });
+      };
+      updateDots();
+      track.addEventListener('scroll', function () {
+        window.requestAnimationFrame(updateDots);
+      });
+    }
 
     if (!reduceMotion) {
       var paused = false;
