@@ -867,15 +867,17 @@
     }
 
     .funciona-card .icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
+      width: 64px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 18px;
-      background: var(--color-yellow-accent);
-      color: #fff;
+    }
+    .funciona-card .icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .funciona-card h3 {
@@ -1214,7 +1216,7 @@
 
     /* ============ SECTION 11 — FAQ ============ */
     .faq {
-      background: var(--color-lilac-soft);
+      background: var(--color-bg-alt);
     }
 
     .faq .container {
@@ -1237,7 +1239,7 @@
     }
 
     .faq-item {
-      background: var(--color-bg-alt);
+      background: #E4E9F2;
       border-radius: var(--radius-md);
       overflow: hidden;
       box-shadow: var(--shadow-soft);
@@ -1531,7 +1533,7 @@
 
     /* ============ SECTION — DEPOIMENTOS (carrossel) ============ */
     .depoimentos {
-      background: var(--color-mint-soft);
+      background: var(--color-bg-alt);
     }
 
     .depoimentos-header {
@@ -1568,7 +1570,7 @@
       flex: 0 0 auto;
       scroll-snap-align: center;
       width: calc(100vw - 112px);
-      background: var(--color-bg-alt);
+      background: #E4E9F2;
       border-radius: var(--radius-md);
       padding: 22px;
       box-shadow: var(--shadow-soft);
@@ -2074,9 +2076,9 @@
   <section class="section funciona">
     <div class="wave-divider wave-divider--top" aria-hidden="true">
       <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-lilac-soft)" />
+        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#FFFFFF" />
         <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
-          fill="var(--color-lilac-soft)" />
+          fill="#FFFFFF" />
       </svg>
     </div>
     <div class="container">
@@ -2087,11 +2089,7 @@
       <div class="funciona-grid">
         <div class="funciona-card card-hover reveal" data-delay="0">
           <span class="icon-wrap" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M9.5 2a4.5 4.5 0 0 0-4.5 4.5v.5a3 3 0 0 0-1 5.83V15a3 3 0 0 0 3 3 3 3 0 0 0 3 3 4.5 4.5 0 0 0 4.5-4.5V6.5A4.5 4.5 0 0 0 9.5 2z" />
-            </svg>
+            <img src="assets/sobre/neurociência.svg" alt="" loading="lazy">
           </span>
           <h3>Baseado em neurociência</h3>
           <p>Crianças aprendem até 300% mais rápido quando estão se divertindo. O cérebro infantil foi feito para
@@ -2099,21 +2097,14 @@
         </div>
         <div class="funciona-card card-hover reveal" data-delay="100">
           <span class="icon-wrap" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 20l9-16H3z" />
-            </svg>
+            <img src="assets/sobre/problema.svg" alt="" loading="lazy">
           </span>
           <h3>Resolve o problema real</h3>
           <p>Transforma o "tempo passando" em experiências ricas de aprendizagem, diversão e conexão.</p>
         </div>
         <div class="funciona-card card-hover reveal" data-delay="200">
           <span class="icon-wrap" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
-            </svg>
+            <img src="assets/sobre/Tranquilidade.svg" alt="" loading="lazy">
           </span>
           <h3>Tranquilidade</h3>
           <p>Menos culpa, mais presença. Você continua fazendo parte das melhores lembranças da infância do seu filho —
@@ -2121,10 +2112,7 @@
         </div>
         <div class="funciona-card card-hover reveal" data-delay="300">
           <span class="icon-wrap" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-            </svg>
+            <img src="assets/sobre/Economia.svg" alt="" loading="lazy">
           </span>
           <h3>Economia</h3>
           <p>Menos de R$3,00 por dia. Material para anos de uso, imprima quantas vezes quiser.</p>
@@ -2239,9 +2227,9 @@
   <section class="section oferta">
     <div class="wave-divider wave-divider--top" aria-hidden="true">
       <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-mint-soft)" />
+        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-bg-alt)" />
         <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
-          fill="var(--color-mint-soft)" />
+          fill="var(--color-bg-alt)" />
       </svg>
     </div>
     <div class="container">
@@ -2363,9 +2351,9 @@
   <section class="section cta-final">
     <div class="wave-divider wave-divider--top" aria-hidden="true">
       <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-lilac-soft)" />
+        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-bg-alt)" />
         <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
-          fill="var(--color-lilac-soft)" />
+          fill="var(--color-bg-alt)" />
       </svg>
     </div>
     <div class="container">
