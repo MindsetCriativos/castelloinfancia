@@ -919,6 +919,111 @@ button { font: inherit; cursor: pointer; }
   * { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ============ SECTION — DEPOIMENTOS (carrossel) ============ */
+.depoimentos { background: var(--color-mint-soft); }
+.depoimentos-header { text-align: center; }
+.depoimentos-header .section-title, .depoimentos-header .section-lead { margin: 0 auto; text-align: center; }
+
+.testimonials-carousel { position: relative; margin-top: 48px; }
+
+.testimonials-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 8px 4px 24px;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+}
+.testimonials-track::-webkit-scrollbar { display: none; }
+
+.testimonial-card {
+  flex: 0 0 auto;
+  width: 82%;
+  max-width: 320px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--color-mint-accent);
+  font-weight: 700;
+}
+.testimonial-text {
+  margin-top: 4px;
+  color: var(--color-text-secondary);
+  font-size: 0.98rem;
+  flex-grow: 1;
+}
+.testimonial-stars {
+  margin-top: 18px;
+  color: var(--color-yellow-accent);
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+.testimonial-person {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-person .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.testimonial-person .name { font-weight: var(--fw-bold); font-size: 0.96rem; display: block; }
+.testimonial-person .role { font-size: 0.82rem; color: var(--color-text-secondary); }
+
+.testimonials-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-bg-alt);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  z-index: 2;
+}
+.testimonials-arrow:hover { background: var(--color-mint-accent); color: #fff; }
+.testimonials-arrow--prev { left: -6px; }
+.testimonials-arrow--next { right: -6px; }
+
+.testimonials-disclaimer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
+@media (min-width: 640px) {
+  .testimonial-card { width: 320px; }
+  .testimonials-arrow--prev { left: -22px; }
+  .testimonials-arrow--next { right: -22px; }
+}
 </style>
 </head>
 <body>
@@ -952,12 +1057,6 @@ button { font: inherit; cursor: pointer; }
 
 <!-- [2] IDENTIFICAÇÃO -->
 <section class="section section--bg-alt">
-  <div class="wave-divider wave-divider--top" aria-hidden="true">
-    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-pink-soft)"/>
-      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-pink-soft)"/>
-    </svg>
-  </div>
   <div class="container split">
     <div class="split-copy">
       <h2 class="reveal">Você chega em casa, e a cena se repete.</h2>
@@ -1105,8 +1204,8 @@ button { font: inherit; cursor: pointer; }
 <section class="section bonus">
   <div class="wave-divider wave-divider--top" aria-hidden="true">
     <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-mint-soft)"/>
-      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-mint-soft)"/>
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#FFFFFF"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="#FFFFFF"/>
     </svg>
   </div>
   <div class="container">
@@ -1272,12 +1371,95 @@ button { font: inherit; cursor: pointer; }
   </div>
 </section>
 
-<!-- [8] OFERTA -->
-<section class="section oferta">
+<!-- [7.5] DEPOIMENTOS -->
+<!-- ATENÇÃO: depoimentos abaixo são exemplos fictícios para demonstração. Substituir por depoimentos reais (prints, formulário pós-compra) antes de publicar. -->
+<section class="section depoimentos">
   <div class="wave-divider wave-divider--top" aria-hidden="true">
     <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
       <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-yellow-soft)"/>
       <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-yellow-soft)"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="depoimentos-header">
+      <span class="eyebrow eyebrow--mint reveal">O que as mães estão dizendo</span>
+      <h2 class="section-title reveal" data-delay="60">Quem já testou, recomenda</h2>
+      <p class="section-lead reveal" data-delay="120">Mais de 3.000 famílias já trocaram tempo de tela por momentos de verdade.</p>
+    </div>
+    <div class="testimonials-carousel reveal" data-delay="180">
+      <button class="testimonials-arrow testimonials-arrow--prev" type="button" aria-label="Depoimento anterior">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="testimonials-track" id="testimonialsTrack">
+        <article class="testimonial-card">
+          <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text">No começo achei que ele ia reclamar, mas o Baralho das Sílabas virou a brincadeira favorita dele depois da escola. Em duas semanas percebi que ele estava pedindo pra jogar em vez de pedir o tablet.</p>
+          <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <div class="testimonial-person">
+            <span class="avatar" style="background:var(--color-solid-pink);">CR</span>
+            <span><span class="name">Camila R.</span><span class="role">mãe do Theo, 6 anos</span></span>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text">Uso com os dois, cada um numa fase diferente. A Alice adora o Bingo das Sílabas e o Bento já está no Palavra Secreta. Finalmente achei algo que funciona pros dois ao mesmo tempo.</p>
+          <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <div class="testimonial-person">
+            <span class="avatar" style="background:var(--color-solid-indigo);">FA</span>
+            <span><span class="name">Fernanda A.</span><span class="role">mãe da Alice, 4, e do Bento, 7</span></span>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text">Trabalho o dia inteiro e sempre me senti culpada pelo tempo de tela. Com os baralhos, os 30 minutos antes do jantar viraram nosso momento, e ele nem lembra mais do tablet nesse horário.</p>
+          <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <div class="testimonial-person">
+            <span class="avatar" style="background:var(--color-solid-teal);">JM</span>
+            <span><span class="name">Juliana M.</span><span class="role">mãe do Miguel, 5 anos</span></span>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text">Comprei pra usar em casa com a Sofia e acabei levando pra sala de aula também. O Bingo das Sílabas foi sucesso com a turma inteira.</p>
+          <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <div class="testimonial-person">
+            <span class="avatar" style="background:var(--color-solid-gold);">PS</span>
+            <span><span class="name">Patrícia S.</span><span class="role">professora e mãe da Sofia, 8 anos</span></span>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text">O Davi tem dificuldade de concentração e eu já tinha desistido de vários jogos educativos. Esse ele terminou o baralho inteiro na primeira tarde. Comprei pelo preço, fiquei pelo resultado.</p>
+          <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <div class="testimonial-person">
+            <span class="avatar" style="background:var(--color-solid-coral);">RC</span>
+            <span><span class="name">Renata C.</span><span class="role">mãe do Davi, 4 anos</span></span>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-text">O que mais gostei foi poder imprimir quantas vezes quiser. Já rasgamos duas cópias de tanto uso e é só imprimir de novo, sem custo extra.</p>
+          <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <div class="testimonial-person">
+            <span class="avatar" style="background:var(--color-solid-purple);">AL</span>
+            <span><span class="name">Ana Paula L.</span><span class="role">mãe da Laura, 9, e do Pedro, 6</span></span>
+          </div>
+        </article>
+      </div>
+      <button class="testimonials-arrow testimonials-arrow--next" type="button" aria-label="Próximo depoimento">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <p class="testimonials-disclaimer">Depoimentos ilustrativos para demonstração.</p>
+  </div>
+</section>
+
+<!-- [8] OFERTA -->
+<section class="section oferta">
+  <div class="wave-divider wave-divider--top" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-mint-soft)"/>
+      <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="var(--color-mint-soft)"/>
     </svg>
   </div>
   <div class="container">
@@ -1410,6 +1592,57 @@ button { font: inherit; cursor: pointer; }
       });
     }, { threshold: 0.15 });
     revealEls.forEach(function (el) { observer.observe(el); });
+  }
+
+  var track = document.getElementById('testimonialsTrack');
+  if (track) {
+    var originalCards = Array.prototype.slice.call(track.children);
+    originalCards.forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+      track.appendChild(clone);
+    });
+    var setWidth = function () { return track.scrollWidth / 2; };
+    var cardStep = function () {
+      var card = track.querySelector('.testimonial-card');
+      return card ? card.getBoundingClientRect().width + 20 : 320;
+    };
+
+    var settling = false;
+    var settleAfterScroll = function () {
+      if (settling) return;
+      settling = true;
+      setTimeout(function () {
+        var half = setWidth();
+        if (track.scrollLeft >= half) track.scrollLeft -= half;
+        settling = false;
+      }, 500);
+    };
+
+    var advance = function (dir) {
+      if (dir < 0 && track.scrollLeft < cardStep()) {
+        track.scrollLeft += setWidth();
+      }
+      track.scrollBy({ left: dir * cardStep(), behavior: 'smooth' });
+      settleAfterScroll();
+    };
+
+    var prevBtn = document.querySelector('.testimonials-arrow--prev');
+    var nextBtn = document.querySelector('.testimonials-arrow--next');
+    nextBtn.addEventListener('click', function () { advance(1); });
+    prevBtn.addEventListener('click', function () { advance(-1); });
+
+    if (!reduceMotion) {
+      var paused = false;
+      var autoAdvance = setInterval(function () {
+        if (!paused) advance(1);
+      }, 3200);
+      track.addEventListener('mouseenter', function () { paused = true; });
+      track.addEventListener('mouseleave', function () { paused = false; });
+      track.addEventListener('touchstart', function () { paused = true; }, { passive: true });
+      track.addEventListener('touchend', function () { paused = false; }, { passive: true });
+    }
   }
 
   document.querySelectorAll('.faq-item').forEach(function (item) {
