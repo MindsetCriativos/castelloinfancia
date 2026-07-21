@@ -357,6 +357,56 @@
       color: var(--color-pink-accent-dark);
     }
 
+    /* ============ MARQUEE STRIP ============ */
+    .marquee-strip {
+      background: var(--color-pink-accent-dark);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      animation: marquee-scroll 30s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-strip:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    .marquee-item {
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .marquee-sep {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 12px;
+    }
+
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track {
+        animation: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .marquee-item {
+        font-size: 12px;
+      }
+    }
+
     /* ============ HERO ============ */
     .hero {
       position: relative;
@@ -573,7 +623,7 @@
 
     /* ============ SECTION 5 — OS 10 JOGOS (bento grid, blocos de cor sólida) ============ */
     .jogos {
-      background: var(--color-mint-soft);
+      background: var(--color-lilac-soft);
     }
 
     .jogos-header {
@@ -840,7 +890,7 @@
 
     /* ============ SECTION 6 — POR QUE FUNCIONA ============ */
     .funciona {
-      background: var(--color-yellow-soft);
+      background: var(--color-bg-alt);
     }
 
     .funciona-header {
@@ -860,10 +910,27 @@
     }
 
     .funciona-card {
-      background: var(--color-bg-alt);
+      background: var(--color-bg-base);
       border-radius: var(--radius-md);
       padding: 28px;
       box-shadow: var(--shadow-soft);
+      border-top: 5px solid var(--card-accent, var(--color-pink-accent));
+    }
+
+    .funciona-card--1 {
+      --card-accent: var(--color-pink-accent);
+    }
+
+    .funciona-card--2 {
+      --card-accent: var(--color-mint-accent);
+    }
+
+    .funciona-card--3 {
+      --card-accent: var(--color-lilac-accent);
+    }
+
+    .funciona-card--4 {
+      --card-accent: var(--color-yellow-accent-dark);
     }
 
     .funciona-card .icon-wrap {
@@ -874,6 +941,7 @@
       justify-content: center;
       margin-bottom: 18px;
     }
+
     .funciona-card .icon-wrap img {
       width: 100%;
       height: 100%;
@@ -892,7 +960,7 @@
 
     /* ============ SECTION 7 — BÔNUS (bento grid, blocos de cor sólida) ============ */
     .bonus {
-      background: var(--color-blue-soft);
+      background: var(--color-lilac-soft);
     }
 
     .bonus-header {
@@ -1242,7 +1310,6 @@
       background: #E4E9F2;
       border-radius: var(--radius-md);
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
     }
 
     .faq-question {
@@ -1280,6 +1347,7 @@
 
     .faq-item summary {
       list-style: none;
+      cursor: pointer;
     }
 
     .faq-item summary::-webkit-details-marker {
@@ -1292,14 +1360,27 @@
 
     /* ============ SECTION 12 — CTA PÓS-FAQ ============ */
     .cta-final {
-      background: var(--color-pink-soft);
+      background: var(--color-bg-alt);
       text-align: center;
+      padding: 32px 0;
     }
 
     .cta-final .container {
-      max-width: 640px;
+      max-width: 1360px;
       position: relative;
       z-index: 1;
+      background: var(--color-pink-soft);
+      border-radius: var(--radius-lg);
+      padding: 80px 24px;
+    }
+
+    @media (max-width: 640px) {
+      .cta-final .container {
+        padding: 40px 20px;
+        margin-left: 16px;
+        margin-right: 16px;
+        width: auto;
+      }
     }
 
     .cta-final h2 {
@@ -1343,6 +1424,28 @@
     .wave-divider svg {
       width: 200%;
       /* contém o padrão da onda repetido 2x lado a lado */
+      height: 100%;
+      display: block;
+      animation: wave-scroll 12s linear infinite;
+    }
+
+    /* Faixa branca com espessura própria entre duas seções da mesma cor de fundo:
+       diferente de .wave-divider (que sobrepõe a borda de UMA seção e some quando
+       encostada na onda da seção vizinha), aqui o fundo do bloco é branco e um único
+       SVG morde as duas bordas (topo e base) com a cor lilás, deixando uma faixa
+       branca ondulada de espessura visível entre as seções. */
+    .wave-seam {
+      position: relative;
+      height: 60px;
+      margin: -1px 0;
+      /* sobrepõe 1px nas seções vizinhas para não deixar frestas por arredondamento de subpixel */
+      background: #fff;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    .wave-seam svg {
+      width: 200%;
       height: 100%;
       display: block;
       animation: wave-scroll 12s linear infinite;
@@ -1570,25 +1673,27 @@
       flex: 0 0 auto;
       scroll-snap-align: center;
       width: calc(100vw - 112px);
-      background: #E3EFEB;
+      background: #FDF1F4;
       border-radius: var(--radius-md);
       padding: 22px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: none;
       display: flex;
       flex-direction: column;
+      border-top: 4px solid var(--color-pink-accent);
     }
 
     .testimonial-quote {
       font-family: var(--font-display);
       font-size: 2.6rem;
       line-height: 1;
-      color: var(--color-mint-accent);
+      color: var(--color-pink-accent);
       font-weight: 700;
     }
 
     .testimonial-text {
       margin-top: 4px;
-      color: var(--color-text-secondary);
+      color: #6B5C55;
+      /* mais escuro que --color-text-secondary p/ manter AA sobre --color-pink-soft */
       font-size: 0.98rem;
       flex-grow: 1;
     }
@@ -1629,7 +1734,7 @@
 
     .testimonial-person .role {
       font-size: 0.82rem;
-      color: var(--color-text-secondary);
+      color: #6B5C55;
     }
 
     .testimonials-arrow {
@@ -1651,7 +1756,7 @@
     }
 
     .testimonials-arrow:hover {
-      background: var(--color-mint-accent);
+      background: var(--color-pink-accent);
       color: #fff;
     }
 
@@ -1677,12 +1782,12 @@
       padding: 0;
       border: none;
       border-radius: 50%;
-      background: var(--color-bg-alt);
+      background: #CBB8B4;
       cursor: pointer;
     }
 
     .testimonials-dots button.is-active {
-      background: var(--color-mint-accent);
+      background: var(--color-pink-accent);
       width: 22px;
       border-radius: var(--radius-pill);
     }
@@ -1727,6 +1832,35 @@
       <span class="logo">Castello Infância</span>
     </div>
   </header>
+
+  <div class="marquee-strip" aria-label="Destaques">
+    <div class="marquee-track">
+      <span class="marquee-item">Mais de 3.000 mães já usam</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Garantia de 7 dias ou seu dinheiro de volta</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Acesso imediato após a compra</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Pagamento único, sem mensalidade</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Imprima quantas vezes quiser</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Menos de R$3,00 por dia</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Mais de 3.000 mães já usam</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Garantia de 7 dias ou seu dinheiro de volta</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Acesso imediato após a compra</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Pagamento único, sem mensalidade</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Imprima quantas vezes quiser</span>
+      <span class="marquee-sep">✦</span>
+      <span class="marquee-item">Menos de R$3,00 por dia</span>
+      <span class="marquee-sep">✦</span>
+    </div>
+  </div>
 
   <!-- [1] HERO -->
   <section class="hero">
@@ -1777,15 +1911,9 @@
 
   <!-- [3] OS 10 JOGOS -->
   <section class="section jogos">
-    <div class="wave-divider wave-divider--top" aria-hidden="true">
-      <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#FFFFFF" />
-        <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="#FFFFFF" />
-      </svg>
-    </div>
     <div class="container">
       <div class="jogos-header">
-        <span class="eyebrow eyebrow--mint reveal">Kit completo</span>
+        <span class="eyebrow eyebrow--lilac reveal">Kit completo</span>
         <h2 class="section-title reveal" data-delay="60">10 jogos, cada um trabalhando uma habilidade diferente</h2>
         <p class="section-lead reveal" data-delay="120">Juntos, formam o material completo para tornar a infância dos
           pequenos mais leve e saudável.</p>
@@ -1919,14 +2047,19 @@
     </div>
   </section>
 
+  <div class="wave-seam" aria-hidden="true">
+    <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+      <path d="M0,20 C360,20 360,6 720,6 C1080,6 1080,20 1440,20 L1440,0 L0,0 Z" fill="var(--color-lilac-soft)" />
+      <path d="M1440,20 C1800,20 1800,6 2160,6 C2520,6 2520,20 2880,20 L2880,0 L1440,0 Z"
+        fill="var(--color-lilac-soft)" />
+      <path d="M0,40 C360,40 360,54 720,54 C1080,54 1080,40 1440,40 L1440,60 L0,60 Z" fill="var(--color-lilac-soft)" />
+      <path d="M1440,40 C1800,40 1800,54 2160,54 C2520,54 2520,40 2880,40 L2880,60 L1440,60 Z"
+        fill="var(--color-lilac-soft)" />
+    </svg>
+  </div>
+
   <!-- [4] BÔNUS -->
   <section class="section bonus">
-    <div class="wave-divider wave-divider--top" aria-hidden="true">
-      <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#FFFFFF" />
-        <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="#FFFFFF" />
-      </svg>
-    </div>
     <div class="container">
       <div class="bonus-header">
         <span class="eyebrow eyebrow--lilac reveal" style="background:var(--color-blue-accent-dark);">Incluso no seu
@@ -1978,9 +2111,9 @@
   <section class="section desafio">
     <div class="wave-divider wave-divider--top" aria-hidden="true">
       <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-blue-soft)" />
+        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-lilac-soft)" />
         <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
-          fill="var(--color-blue-soft)" />
+          fill="var(--color-lilac-soft)" />
       </svg>
     </div>
     <div class="container">
@@ -2070,24 +2203,24 @@
         </span>
       </div>
     </div>
+    <div class="wave-divider wave-divider--bottom" aria-hidden="true">
+      <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-bg-alt)" />
+        <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
+          fill="var(--color-bg-alt)" />
+      </svg>
+    </div>
   </section>
 
   <!-- [7] POR QUE FUNCIONA -->
   <section class="section funciona">
-    <div class="wave-divider wave-divider--top" aria-hidden="true">
-      <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#FFFFFF" />
-        <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
-          fill="#FFFFFF" />
-      </svg>
-    </div>
     <div class="container">
       <div class="funciona-header">
         <span class="eyebrow eyebrow--yellow reveal">A ciência por trás do método</span>
         <h2 class="section-title reveal" data-delay="60">Por que funciona</h2>
       </div>
       <div class="funciona-grid">
-        <div class="funciona-card card-hover reveal" data-delay="0">
+        <div class="funciona-card funciona-card--1 card-hover reveal" data-delay="0">
           <span class="icon-wrap" aria-hidden="true">
             <img src="assets/sobre/neurociência.svg" alt="" loading="lazy">
           </span>
@@ -2095,14 +2228,14 @@
           <p>Crianças aprendem até 300% mais rápido quando estão se divertindo. O cérebro infantil foi feito para
             aprender brincando.</p>
         </div>
-        <div class="funciona-card card-hover reveal" data-delay="100">
+        <div class="funciona-card funciona-card--2 card-hover reveal" data-delay="100">
           <span class="icon-wrap" aria-hidden="true">
             <img src="assets/sobre/problema.svg" alt="" loading="lazy">
           </span>
           <h3>Resolve o problema real</h3>
           <p>Transforma o "tempo passando" em experiências ricas de aprendizagem, diversão e conexão.</p>
         </div>
-        <div class="funciona-card card-hover reveal" data-delay="200">
+        <div class="funciona-card funciona-card--3 card-hover reveal" data-delay="200">
           <span class="icon-wrap" aria-hidden="true">
             <img src="assets/sobre/Tranquilidade.svg" alt="" loading="lazy">
           </span>
@@ -2110,7 +2243,7 @@
           <p>Menos culpa, mais presença. Você continua fazendo parte das melhores lembranças da infância do seu filho —
             mesmo trabalhando.</p>
         </div>
-        <div class="funciona-card card-hover reveal" data-delay="300">
+        <div class="funciona-card funciona-card--4 card-hover reveal" data-delay="300">
           <span class="icon-wrap" aria-hidden="true">
             <img src="assets/sobre/Economia.svg" alt="" loading="lazy">
           </span>
@@ -2121,19 +2254,53 @@
     </div>
   </section>
 
-  <!-- [7.5] DEPOIMENTOS -->
+  <!-- [8] OFERTA -->
+  <section class="section oferta">
+    <div class="wave-divider wave-divider--top" aria-hidden="true">
+      <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
+        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-bg-alt)" />
+        <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
+          fill="var(--color-bg-alt)" />
+      </svg>
+    </div>
+    <div class="container">
+      <span class="eyebrow eyebrow--yellow reveal"
+        style="background:var(--color-yellow-accent);color:var(--color-text-primary);">Oferta completa</span>
+      <h2 class="reveal" data-delay="60">Tudo que você leva hoje</h2>
+      <ul class="oferta-list reveal" data-delay="120">
+        <li><span>10 baralhos completos de alfabetização</span><span class="val">R$197</span></li>
+        <li><span>Lancheira Inteligente</span><span class="val">R$37</span></li>
+        <li><span>Mestre das Formas</span><span class="val">R$47</span></li>
+        <li><span>Teddy Bear Edition</span><span class="val">R$107</span></li>
+      </ul>
+      <p class="oferta-total reveal" data-delay="180">Valor total: <span class="total-val">R$388</span></p>
+      <p class="oferta-price reveal" data-delay="220">R$29,90 <span>Pagamento único · Acesso vitalício · Sem
+          mensalidades</span></p>
+      <div class="oferta-cta reveal" data-delay="300">
+        <a href="https://pay.kiwify.com.br/LehCx8k" class="btn btn--primary btn--shine">
+          Garantir meu kit agora
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </a>
+        <span class="cta-caption">Compra segura · Acesso imediato · Garantia de satisfação</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- [9] DEPOIMENTOS -->
 
   <section class="section depoimentos">
     <div class="wave-divider wave-divider--top" aria-hidden="true">
       <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-yellow-soft)" />
-        <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
-          fill="var(--color-yellow-soft)" />
+        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#3A2E2A" />
+        <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="#3A2E2A" />
       </svg>
     </div>
     <div class="container">
       <div class="depoimentos-header">
-        <span class="eyebrow eyebrow--mint reveal">O que as mães estão dizendo</span>
+        <span class="eyebrow eyebrow--pink reveal">O que as mães estão dizendo</span>
         <h2 class="section-title reveal" data-delay="60">Quem já testou, recomenda</h2>
         <p class="section-lead reveal" data-delay="120">Mais de 3.000 famílias já trocaram tempo de tela por momentos de
           verdade.</p>
@@ -2153,7 +2320,7 @@
               vez de pedir o tablet.</p>
             <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
             <div class="testimonial-person">
-              <span class="avatar" style="background:var(--color-solid-pink);">CR</span>
+              <span class="avatar" style="background:var(--color-solid-magenta);">CR</span>
               <span><span class="name">Camila R.</span><span class="role">mãe do Theo, 6 anos</span></span>
             </div>
           </article>
@@ -2196,7 +2363,7 @@
               resultado.</p>
             <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
             <div class="testimonial-person">
-              <span class="avatar" style="background:var(--color-solid-coral);">RC</span>
+              <span class="avatar" style="background:var(--color-solid-blue);">RC</span>
               <span><span class="name">Renata C.</span><span class="role">mãe do Davi, 4 anos</span></span>
             </div>
           </article>
@@ -2223,47 +2390,13 @@
     </div>
   </section>
 
-  <!-- [8] OFERTA -->
-  <section class="section oferta">
+  <!-- [10] GARANTIA -->
+  <section class="section garantia">
     <div class="wave-divider wave-divider--top" aria-hidden="true">
       <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
         <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-bg-alt)" />
         <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
           fill="var(--color-bg-alt)" />
-      </svg>
-    </div>
-    <div class="container">
-      <span class="eyebrow eyebrow--yellow reveal"
-        style="background:var(--color-yellow-accent);color:var(--color-text-primary);">Oferta completa</span>
-      <h2 class="reveal" data-delay="60">Tudo que você leva hoje</h2>
-      <ul class="oferta-list reveal" data-delay="120">
-        <li><span>10 baralhos completos de alfabetização</span><span class="val">R$197</span></li>
-        <li><span>Lancheira Inteligente</span><span class="val">R$37</span></li>
-        <li><span>Mestre das Formas</span><span class="val">R$47</span></li>
-        <li><span>Teddy Bear Edition</span><span class="val">R$107</span></li>
-      </ul>
-      <p class="oferta-total reveal" data-delay="180">Valor total: <span class="total-val">R$388</span></p>
-      <p class="oferta-price reveal" data-delay="220">R$29,90 <span>Pagamento único · Acesso vitalício · Sem
-          mensalidades</span></p>
-      <div class="oferta-cta reveal" data-delay="300">
-        <a href="https://pay.kiwify.com.br/LehCx8k" class="btn btn--primary btn--shine">
-          Garantir meu kit agora
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round">
-            <path d="M5 12h14M13 5l7 7-7 7" />
-          </svg>
-        </a>
-        <span class="cta-caption">Compra segura · Acesso imediato · Garantia de satisfação</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- [9] GARANTIA -->
-  <section class="section garantia">
-    <div class="wave-divider wave-divider--top" aria-hidden="true">
-      <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="#3A2E2A" />
-        <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z" fill="#3A2E2A" />
       </svg>
     </div>
     <div class="container">
@@ -2289,7 +2422,7 @@
     </div>
   </section>
 
-  <!-- [10] FAQ -->
+  <!-- [11] FAQ -->
   <section class="section faq">
     <div class="wave-divider wave-divider--top" aria-hidden="true">
       <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
@@ -2347,15 +2480,8 @@
     </div>
   </section>
 
-  <!-- [11] CTA SIMPLES PÓS-FAQ -->
+  <!-- [12] CTA SIMPLES PÓS-FAQ -->
   <section class="section cta-final">
-    <div class="wave-divider wave-divider--top" aria-hidden="true">
-      <svg viewBox="0 0 2880 60" preserveAspectRatio="none">
-        <path d="M0,32 C360,32 360,18 720,18 C1080,18 1080,32 1440,32 L1440,0 L0,0 Z" fill="var(--color-bg-alt)" />
-        <path d="M1440,32 C1800,32 1800,18 2160,18 C2520,18 2520,32 2880,32 L2880,0 L1440,0 Z"
-          fill="var(--color-bg-alt)" />
-      </svg>
-    </div>
     <div class="container">
       <h2 class="reveal">Pronta para começar os 30 dias sem tela?</h2>
       <div class="cta-final-btn reveal" data-delay="80">
